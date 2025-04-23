@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 252 59% 48%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 252 59% 48%;
+
+    --sidebar-bg: 0 0% 98%;
+    --sidebar-border: 240 5.9% 90%;
+    --chat-bg: 0 0% 98%;
+    --message-bg-mine: 252 59% 48%;
+    --message-bg-other: 240 4.8% 95.9%;
+    --status-online: 142 71% 45%;
+    --status-offline: 220 9% 46%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 252 59% 63%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --sidebar-bg: 0 0% 4%;
+    --sidebar-border: 240 3.7% 13%;
+    --chat-bg: 0 0% 4%;
+    --message-bg-mine: 252 59% 63%;
+    --message-bg-other: 240 3.7% 13%;
+    --status-online: 142 71% 45%;
+    --status-offline: 220 9% 46%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth transitions for theme changes */
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Message editing transitions */
+.message-edit-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Consistent spacing */
+.chat-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.chat-header {
+  padding: 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+  height: 72px;
+  display: flex;
+  align-items: center;
+}
+
+.chat-messages {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chat-input {
+  padding: 1rem;
+  border-top: 1px solid hsl(var(--border));
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .chat-header {
+    padding: 0.75rem;
+  }
+
+  .chat-messages {
+    padding: 0.75rem;
+  }
+
+  .chat-input {
+    padding: 0.75rem;
+  }
+}
+
+/* Sidebar width */
+.sidebar-width {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+/* Message bubbles */
+.message-bubble-mine {
+  @apply bg-primary text-primary-foreground rounded-lg p-3;
+}
+
+.message-bubble-other {
+  @apply bg-secondary text-secondary-foreground rounded-lg p-3;
+}
+
+/* Message timestamp */
+.message-time {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+/* Message status indicators */
+.message-status {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* User status indicator */
+.status-indicator-online {
+  @apply h-2 w-2 rounded-full bg-[hsl(var(--status-online))];
+}
+
+.status-indicator-offline {
+  @apply h-2 w-2 rounded-full bg-[hsl(var(--status-offline))];
+}
+
+/* Gradient text for consistent styling */
+.gradient-text {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80;
+}
+
+/* Card styles for consistent styling */
+.feature-card {
+  @apply bg-card border border-border rounded-xl p-6 transition-all duration-700 ease-out;
+}
+
+/* Icon container for consistent styling */
+.icon-container {
+  @apply bg-secondary p-3 rounded-lg inline-block mb-4;
+}
+
+/* Pricing card styles */
+.pricing-card {
+  @apply bg-card border border-border rounded-xl overflow-hidden transition-all duration-700;
+}
+
+.pricing-card-premium {
+  @apply bg-gradient-to-b from-card to-card/90 border border-border/80 rounded-xl overflow-hidden relative;
+}
+
+/* Toggle button styles */
+.toggle-button {
+  @apply relative w-14 h-7 bg-secondary rounded-full p-1 transition-colors duration-300;
+}
+
+.toggle-button-indicator {
+  @apply absolute top-1 left-1 bg-primary w-5 h-5 rounded-full transition-transform duration-300;
+}
+
+.cl-internal-1dauvpw {
+  display: none !important;
+}
+
+.cl-footer {
+  background: var(--bg-card) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+}
+
+.cl-card {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.cl-cardBox {
+  z-index: 999 !important;
+}
+
+[data-state="open"] .closeButton {
+  display: none; /* hide when the state is open */
+}
+.closeButton {
+  display: none !important; /* hide when the state is closed */
+}
+.sr-only {
+  display: none !important;
+}
