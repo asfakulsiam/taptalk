@@ -1,102 +1,129 @@
-# taptalk
-🗨️ TapTalk — Real-Time Chat & Messaging App
-TapTalk is a cutting-edge real-time messaging application built with Next.js 14, TypeScript, Tailwind CSS, shadcn/ui, Clerk authentication, and Socket.io. It features private and group chat, user profiles, responsive UI, theme switching, and seamless real-time communication.
 
-✨ Features
+# 🗨️ TapTalk – Real-Time Messaging App
 
-🔐 Secure authentication via Clerk
+TapTalk is a full-stack modern chat application built with Next.js 14, TypeScript, and Clerk for authentication. It supports real-time one-to-one and group messaging using Socket.io. Inspired by Snapchat's sleek UX, TapTalk makes chatting faster, cleaner, and more fun to use.
 
-💬 One-to-one & group chat support
+---
 
-📸 Profile editing with image upload
+## 📚 Table of Contents
 
-🧑‍🤝‍🧑 Friend system to manage chat access
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Tech Stack](#tech-stack)
+- [Folder Structure](#folder-structure)
+- [License](#license)
 
-💡 Real-time messages with Socket.io
+---
 
-🕓 Typing indicators & unread message count
+## 🚀 Features
 
-🌓 Light/Dark mode theme switching
+- 🔐 Clerk-powered sign-in & sign-up
+- 🧑‍🤝‍🧑 Friend system (add/remove users to chat list)
+- 💬 One-to-one and group chats
+- 🖼️ Update profile with picture
+- ✏️ Create and edit group details
+- 📩 Unread message counts
+- 🟢 Real-time messages via Socket.io
+- ⌨️ Typing indicators in chat
+- ✅ Read receipts support
+- 🌙 Light and dark mode
+- 📱 Fully responsive design
 
-📱 Fully responsive for mobile & desktop
+---
 
-💬 Snapchat-inspired clean chat UI
+## 🛠️ Getting Started
 
-🚀 Tech Stack
+### Prerequisites
 
-Frontend: Next.js 14 (App Router), React, TypeScript
+Ensure you have the following installed:
 
-Styling: Tailwind CSS, shadcn/ui, Framer Motion
+- Node.js 18+
+- npm or yarn
+- Git
+- Clerk account (for auth)
+- MongoDB (or your preferred DB)
 
-Auth: Clerk
+---
 
-Real-time: Socket.io
+## ⚙️ Installation
 
-UI Icons: lucide-react
+1. Clone the repository:
 
-State Management: React Hooks & Context API
+```bash
+git clone https://github.com/asfakulsiam/taptalk.git
+cd taptalk
+```
 
-File Upload (planned): UploadThing or similar
+2. Install dependencies:
 
-📸 Sneak Peek
-
-Add a few screenshots or a screen recording/gif here. Example:
-
-
-📦 Folder Structure (simplified) . ├── app/ │ ├── (auth)/ │ ├── dashboard/ │ ├── chat/ │ └── layout.tsx ├── components/ │ ├── ui/ │ ├── chat/ │ └── sidebar/ ├── lib/ ├── middleware.ts └── utils/
-
-🛠️ Installation & Setup
-
-Clone the repo:
-
-git clone https://github.com/asfakulsiam/taptalk.git cd taptalk
-
-Install dependencies:
-
+```bash
 npm install
+# or
+yarn install
+```
 
-Setup environment variables:
+3. Create a `.env.local` file and add your environment variables:
 
-Copy .env.example → .env.local
+```env
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_FRONTEND_API=...
+NEXT_PUBLIC_SOCKET_URL=http://localhost:3001
+```
 
-Add your Clerk keys, Socket server URL, etc.
+4. Run the development server:
 
-Run locally:
-
+```bash
 npm run dev
+```
 
-🌐 Live Demo
+5. Open your browser at [http://localhost:3000](http://localhost:3000)
 
-Coming soon...
+---
 
-📅 Roadmap
+## 📦 Usage
 
- Auth with Clerk
+- 🔐 Sign up / Sign in with Clerk
+- 🔍 See a list of all users
+- ➕ Add users to your chat list
+- 💬 Start one-to-one or group chats
+- 🖼️ Upload profile pictures
+- ✍️ Rename and edit group chats
+- 📩 View unread message indicators
+- 🔁 All chats update in real-time!
 
- Real-time chat with Socket.io
+---
 
- Profile & avatar updates
+## 🧪 Tech Stack
 
- Light/dark themes
+- Framework: [Next.js 14](https://nextjs.org)
+- Language: TypeScript
+- Styling: Tailwind CSS, shadcn/ui, Framer Motion
+- Auth: Clerk
+- Real-time: Socket.io
+- Database: MongoDB + Mongoose
+- Uploads (planned): UploadThing
+- Hosting: Vercel / Render / Railway
 
- File & image sharing (UploadThing)
+---
 
- Group creation & management
+## 🗂 Folder Structure
 
- Video/audio call integration
+```
+.
+├── app/               # App routes (sign-in, dashboard, etc.)
+├── components/        # UI components
+├── lib/               # Server actions & utils
+├── middleware.ts      # Route protection with Clerk
+├── socket/            # Client socket config
+├── types/             # TypeScript interfaces/types
+└── public/            # Static assets
+```
 
- PWA support for mobile install
+---
 
-📣 Feedback & Contributions
+## 📄 License
 
-Have an idea or found a bug? Open an issue or submit a PR — contributions are always welcome!
-
-🧑‍💻 Author
-
-Built with ❤️ by Asfakul Siam
-
-📄 License
-
-MIT License — free to use and modify.
-
-—
+Licensed under the [MIT License](LICENSE).
